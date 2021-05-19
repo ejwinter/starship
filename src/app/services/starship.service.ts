@@ -4,6 +4,9 @@ import {Observable, of} from 'rxjs';
 import {ResultPage} from './result-page';
 import {map, take, tap} from 'rxjs/operators';
 
+/**
+ * The info about pilots we want, we have to use the homeworld string to get the homeworldDetails from SWAPI
+ */
 export interface Pilot {
   name: string;
   homeworld?: string;
@@ -11,30 +14,50 @@ export interface Pilot {
   homeworldDetails?: { name: string };
 }
 
+/**
+ * The details we need about films.
+ */
 export interface Film {
   title: string;
   release_date: Date;
 }
 
+/**
+ * The information that is available for starships.  The Details are filled in and do not come directly from the api.  This API is quite
+ * restful and you have to request nested information using the provided URLs.
+ */
 export interface Starship {
   name: string;
   model: string;
+  /**
+   * URLs for retrieving all the pilot info
+   */
   pilots: string[];
   films: string[];
   manufacturer: string;
   crew: string;
   passengers: string;
   hyperdrive_rating: string;
+  /**
+   * The pilots as retrieved using appropriate URLS from 'pilots'
+   */
   pilotDetails: Pilot[];
   filmDetails: Film[];
 }
 
+/**
+ * The types of information supported by startship requests
+ */
 export class StarshipRequest {
   page = 1;
   pageSize = 10;
   search?: string = undefined;
 }
 
+/**
+ * This will go out to swapi and request startships, it fills in reflexively grabs the data that we need for this application.
+ * This isn't ideal, a more intelligent caching approach would likely be used in a 'production' setting.
+ */
 @Injectable({
   providedIn: 'root'
 })

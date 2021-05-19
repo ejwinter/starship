@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {MenuItem} from 'primeng/api';
-import {ButtonModule} from 'primeng/button';
 
+/**
+ * The main application component that mostly just houses the functional page components
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,5 +10,4 @@ import {ButtonModule} from 'primeng/button';
 })
 export class AppComponent {
   title = 'starship-explorer';
-  menuItems: MenuItem[] = [];
 }

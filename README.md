@@ -4,6 +4,9 @@ This application was created as part of a development job interview.
 
 The goal was to create an application using a public API that implemented some key web front end features.  We will then perform a code review.
 
+This application utlitizes the SWAPI (Star Wars API) available at https://swapi.dev.  It appears the CORS is set up to allow localhost, so it works for local 
+development but does not work if you try to deploy to Azure (for instance).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
