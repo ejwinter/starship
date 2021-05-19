@@ -4,7 +4,7 @@ import {StarshipsComponent} from './starships/starships.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/starships', pathMatch: 'full' },
-  {path: 'starships', component: StarshipsComponent}
+  {path: 'starships', component: StarshipsComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
