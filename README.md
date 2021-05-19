@@ -1,6 +1,8 @@
-# StarshipExplorer
+# Starship Explorer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.13.
+This application was created as part of a development job interview.
+
+The goal was to create an application using a public API that implemented some key web front end features.  We will then perform a code review.
 
 ## Development server
 
