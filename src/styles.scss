@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    padding: 1rem;
+  font-family: "Helvetica Neue",Helvetica,Arial;
+  color: white;
+  background: rgba(0, 6, 23);
+  padding:0;
+  margin: 0;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }

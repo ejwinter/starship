@@ -1,0 +1,19 @@
+<div *ngIf="starship" class="p-grid" (click)="showDetail=true">
+  <div class="p-sm-12 ship-name">
+    {{starship.name}}
+    <a class="pi pi-eye clickable"></a>
+  </div>
+  <div class="p-sm-2">
+    Pilots: {{starship.pilots.length}}
+  </div>
+  <div class="p-sm-2">
+    Films: {{starship.films.length}}
+  </div>
+
+  <p-dialog header="Ship details" [(visible)]="showDetail" [modal]="true" [baseZIndex]="1000" [style]="{width: '50vw'}" appendTo="body">
+    <app-starship-details [starship]="starship"></app-starship-details>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="showDetail=false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>

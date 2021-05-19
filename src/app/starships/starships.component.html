@@ -1,0 +1,22 @@
+<h1>
+  Starships
+</h1>
+
+<span class="p-input-icon-left" style="margin-bottom: 1rem;">
+    <i class="pi pi-search"></i>
+    <input type="text" class="p-inputtext" pInputText [(ngModel)]="searchTerm" placeholder="Search your sky!" (ngModelChange)="shipSearch()"/>
+</span>
+
+<div *ngFor="let ship of (starshipPage$|async)?.results" class="ship-summary">
+  <app-starship-summary [starship]="ship"></app-starship-summary>
+</div>
+<div class="pagination">
+  <span class="p-sm-2">
+    <p-button label="Previous" *ngIf="(starshipPage$|async)?.previous as page; else noPrevious" (click)="loadPage(page)"></p-button>
+    <ng-template #noPrevious><p-button label="Previous" [disabled]="true"></p-button></ng-template>
+  </span>
+  <span class="p-sm-2">
+    <p-button label="Next" *ngIf="(starshipPage$|async)?.next as page; else noNext" (click)="loadPage(page)"></p-button>
+    <ng-template #noNext><p-button label="Next" [disabled]="true"></p-button></ng-template>
+  </span>
+</div>

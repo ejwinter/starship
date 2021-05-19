@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {ButtonModule} from 'primeng/button';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'starship-explorer';
+  menuItems: MenuItem[] = [];
 }

@@ -1,0 +1,49 @@
+<div *ngIf="starship">
+  <h1>{{starship.name}}</h1>
+  <div class="p-grid">
+  <div class="p-sm-2">
+    <img [src]="icon(starship.model)"/>
+  </div>
+  <div class="p-sm-10 p-grid">
+    <div class="ship-detail p-sm-12">
+      <div class="detail">Manufacturer</div>
+      <div class="info">{{starship.manufacturer}}</div>
+    </div>
+    <div class="ship-detail p-sm-4">
+      <div class="detail">Crew</div>
+      <div class="info">{{starship.crew}}</div>
+    </div>
+    <div class="ship-detail p-sm-4">
+      <div class="detail">Passengers</div>
+      <div class="info">{{starship.passengers}}</div>
+    </div>
+    <div class="ship-detail p-sm-4">
+      <div class="detail">Hyperdrive Rating</div>
+      <div class="info">{{starship.hyperdrive_rating}}</div>
+    </div>
+    <div class="ship-detail p-sm-12">
+      <div class="detail">Model</div>
+      <div class="info">{{starship.model}}</div>
+    </div>
+  </div>
+  </div>
+
+  <div>
+    <h2>Films</h2>
+    <ul>
+      <li *ngFor="let film of starship.filmDetails">{{film.title}} ({{film.release_date|date: 'MMM yyyy'}})</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Pilots</h2>
+    <ul>
+      <li *ngFor="let pilot of starship.pilotDetails">
+        {{pilot.name}}
+        <span *ngIf="pilot.homeworldDetails">
+          ({{pilot.homeworldDetails.name}})
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
